@@ -19,6 +19,10 @@
   margin: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
 li {
   list-style: none;
 }
@@ -41,6 +45,22 @@ main {
   max-width: 1130px;
   margin: 0 auto;
   background-color: #fff;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+.content {
+  padding-bottom: 90px;
+}
+
+.bottom-footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 .block-background {
@@ -144,8 +164,148 @@ header {
   border-bottom: 2px solid red;
 }
 
+.menu-btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu-btn > span, .menu-btn > span::before, .menu-btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition-duration: .25s;
+}
+
+.menu-btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu-btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menubox {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: -100%;
+  width: 150px;
+  height: 100%;
+  margin: 0;
+  list-style: none;
+  background-color: #ffffff;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+  transition-duration: .25s;
+}
+
+.menu-item {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: .25s;
+}
+
+.menu-item:hover {
+  transition: .3s;
+  background-color: #d8dde2;
+  border-bottom: 2px solid var(--main-color);
+}
+
+#menu-toggle {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-btn > span {
+  transform: rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu-toggle:checked ~ .menubox {
+  visibility: visible;
+  left: 0;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 18px;
+  right: 30px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu-btn > span, .menu-btn > span::before .menu-btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+  transition-duration: .25s;
+}
+
+.menu-btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu-btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+#menu-toggle {
+  opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-btn > span {
+  transform: rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+
+#menu-toggle:checked ~ .menu-btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu-toggle:checked ~ .menubox {
+  visibility: visible;
+  left: 0;
+}
+
 .intro {
   margin-bottom: 20px;
+  border-radius: 8px;
 }
 
 .intro img {
@@ -196,6 +356,7 @@ header {
   padding: 20px;
   margin-bottom: 40px;
   color: #fff;
+  border-radius: 8px;
 }
 
 .winners-info {
@@ -223,6 +384,7 @@ footer {
 
 .footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background-color: #000;
@@ -241,4 +403,83 @@ footer {
   border-left: 1px solid var(--text-color-gray);
   border-right: 1px solid var(--text-color-gray);
   font-size: var(--text-small);
+}
+
+@media screen and (min-width: 769px) {
+  .nav {
+    display: block;
+  }
+  .burger-menu {
+    display: none;
+  }
+  .footer {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-device-width: 769px) and (max-device-width: 1150px) {
+  .container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 769px) {
+  .container {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .nav {
+    display: none;
+  }
+  .dropdown span {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .dropdown-content {
+    left: 160px;
+    top: 0;
+  }
+  .winners {
+    background-size: auto;
+  }
+  .footer {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-device-width: 480px) {
+  .nav {
+    display: none;
+  }
+  .container {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .dropdown span {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .dropdown-content {
+    left: 160px;
+    top: 0;
+  }
+  .winners {
+    background-size: auto;
+  }
+  .footer {
+    justify-content: center;
+    text-align: center;
+  }
 }

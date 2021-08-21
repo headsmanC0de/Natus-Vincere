@@ -24,7 +24,9 @@
     box-sizing: border-box
     padding: 0
     margin: 0
-body 
+
+html, body 
+	height: 100%
 
 li
     list-style: none
@@ -42,10 +44,24 @@ main
     margin: 0 auto
     background-color: #fff
 
+.wrapper 
+	position: relative
+	min-height: 100%
+
+.content 
+	padding-bottom: 90px
+
+.bottom-footer
+	position: absolute
+	left: 0
+	bottom: 0
+	width: 100%
+
+
 
 .block-background
     position: fixed
-    background: url("/Natus-Vincere/assets/images/main-bg.jpg") no-repeat center top
+    background: url('/Natus-Vincere/assets/images/main-bg.jpg') no-repeat center top
     top: 0
     left: 0
     width: 100%
@@ -62,3 +78,5 @@ main
 @import _winners.sass
 // Footer
 @import _footer.sass
+// Media
+@import _media.sass
