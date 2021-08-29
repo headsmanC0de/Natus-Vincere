@@ -1,8 +1,9 @@
-// Feedback Area
+//? Feedback initialization
 const appels = document.getElementById("appeals");
-// Send Button
+//? Send Button initialization
 const sendButton = document.querySelector(".btn-send");
 
+//! Function for creating the structure of the feedback item
 let createAppeal = function (text) {
   const article = document.createElement("article");
   article.setAttribute("class", "feedback");
@@ -37,6 +38,8 @@ let createAppeal = function (text) {
   authorLink.setAttribute("target", "_blank");
   authorLink.textContent = "headsmanc0de";
 };
+
+//? Send feedback
 
 function addAppeal() {
   const textArea = document.getElementById("feedback-text");
