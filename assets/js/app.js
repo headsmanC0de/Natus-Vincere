@@ -1,18 +1,50 @@
-const postParent = document.querySelector('.appeal')
+// Feedback Area
+const appels = document.getElementById("appeals");
 
-const post = document.createElement('article');
-post.classList.add('feedback')
-post.innerHTML = `<div>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-</p>
-</div>
+// Send Button
+const sendButton = document.querySelector(".btn-send");
 
-<div class="date__author">
-<div class="date">10.10.2021, 20:33</div>
-<div class="author">
-    <a href="https://headsmanc0de.com/" target="_blank">headsmanc0de</a>
-</div>
-</div>`;
+sendButton.addEventListener('click', function() {
+    const article = document.createElement("article");
+article.setAttribute("class", "feedback");
 
-postParent.appendChild(post);
+appels.appendChild(article);
+
+const textDiv = document.createElement("div");
+const feedbackText = document.createElement("p");
+textDiv.appendChild(feedbackText);
+
+const dateAuthor = document.createElement("div");
+dateAuthor.setAttribute('class','date__author')
+article.appendChild(textDiv);
+article.appendChild(dateAuthor);
+
+
+const date = document.createElement("div");
+date.setAttribute('class', 'date')
+
+// Time Setting
+const newDate = new Date();
+date.textContent = newDate.toLocaleString()
+
+const author = document.createElement("div");
+author.setAttribute('class', 'author')
+dateAuthor.appendChild(date)
+dateAuthor.appendChild(author)
+
+
+const authorLink = document.createElement("a");
+author.appendChild(authorLink);
+authorLink.setAttribute("href", "https://headsmanc0de.com/");
+authorLink.setAttribute("target", "_blank");
+
+authorLink.textContent = "headsmanc0de";
+
+// Text area
+const textArea = document.getElementById("feedback-text");
+const textAreaText = textArea.value;
+
+feedbackText.textContent = textAreaText;
+
+})
+
