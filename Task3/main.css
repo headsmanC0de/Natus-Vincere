@@ -63,6 +63,34 @@ button:active container:hover {
     border-bottom: 1px solid #23272E;
 }
 #watch__list {
-    max-height: 200px;
-    overflow: scroll;
+    height: 425px;
+    list-style: none;
+}
+#watch__list li {
+    margin-bottom: 5px;
+}
+/* li CSS Style */
+.red {
+    color: rgb(255, 61, 61);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(131, 131, 131);
+}
+.green {
+    color: rgb(1, 255, 1);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(131, 131, 131);
+}
+.yellow {
+    color: rgb(255, 255, 0);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(131, 131, 131);
+}
+.dblclick {
+    color: rgb(233, 233, 233);
+    background-color: rgb(131, 131, 131);
+    padding: 10px;
+    border-radius: 10px;
 }
